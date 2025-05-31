@@ -28,7 +28,7 @@ jobs:
         run: nuget restore
 
       - name: Publish to folder
-        run: dotnet publish WebApplication1/WebApplication1.csproj -c Released -o published
+        run: msbuild /nologo /verbosity:m /t:Publish /p:PublishDir=published
         # msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
 
       - name: Upload artifact for deployment job
